@@ -1,0 +1,35 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    --img: url("table.png");
+    background-image: var(--img);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    text-align: center; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --color: goldenrod;
+
+}
+
+h1 {
+    color: var(--color);
+    font-size: 2.5em;
+}
+
+#message-el{
+    font-style: italic;
+}
+/* for start button */
+button {
+    background-color: var(--color);
+    color: green;
+    padding: 10px 30px;
+    font-size: 1em;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
