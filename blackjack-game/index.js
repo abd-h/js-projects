@@ -43,7 +43,7 @@ let
     cards = [],
      sum = 0,
      hasBlackJack = false,
-     isAlive = true,
+     isAlive = false; 
      message = ""
 
 let startBtn = document.querySelector("button"),
@@ -63,6 +63,7 @@ let startBtn = document.querySelector("button"),
         return random
     } 
     function startGame() {
+        isAlive = true;
      let   firstCard = getRandomCard(),
             secondCard = getRandomCard();
         cards.push(firstCard, secondCard);
