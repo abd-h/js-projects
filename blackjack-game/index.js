@@ -43,65 +43,84 @@ let
     cards = [],
      sum = 0,
      hasBlackJack = false,
-     isAlive = false; 
-     message = ""
+     isAlive = false,
+     message = "";
 
 let startBtn = document.querySelector("button"),
     messageEl = document.querySelector("#message-el"),
     sumEl = document.querySelector("#sum-el"),
-    cardsEl = document.querySelector("#cards-el")
-    newCard = document.querySelector(".new-card-el")
+    cardsEl = document.querySelector("#cards-el"),
+    newCard = document.querySelector(".new-card-el");
+    
+
+      startBtn.addEventListener("click", () => {
+        startGame()
+    })
+
+    newCard.addEventListener("click", () => {
+        newcard()
+    })
     
     function getRandomCard() {
         let random = Math.floor(Math.random() * 13) + 1
         if(random > 10){
-            return 11;
+            return 10;
         }
         else if(random === 1){
             return 11;
+        } else {
+            return random
         }
-        return random
     } 
+    
     function startGame() {
         isAlive = true;
-     let   firstCard = getRandomCard(),
-            secondCard = getRandomCard();
-        cards.push(firstCard, secondCard);
-        sum +=  (firstCard + secondCard) + thirdCard;  
-
-     
-        return renderGame()
+        let   firstCard = Math.floor(Math.random() * 13) + 1,
+            secondCard = getRandomCard()
+            console.log(firstCard);
+            cards = [firstCard, secondCard]
+            sum =  firstCard + secondCard
+            renderGame()
     }
+ 
+    console.log(cards);
 
     function renderGame() {
-        startBtn.addEventListener("click", () =>{
-            cardsEl.textContent = `Cards: `
-            for(let i = 0; i < cards.length; i++){
-                cardsEl.textContent += ` ${cards[i]} `
-            }
-            sumEl.textContent =`Sum: ${sum}`;
-            (sum < 21)? message = `You're still in the game, do you want to draw another card`
-            :(sum === 21)? hasBlackJack = true? message = `Congratulatlion You are the winner`
-            :isAlive = false:
-            message = `Game is over`;
-            messageEl.textContent = message
-            console.log(hasBlackJack)
-            console.log(isAlive)
-        })
+        cardsEl.textContent = `Cards: `
+        for(let i = 0; i < cards.length; i++){
+            cardsEl.textContent += ` ${cards[i]} `
+        }
+        sumEl.textContent =`Sum: ${sum}`;
+        (sum < 21)? message = `You're still in the game, do you want to draw another card`
+        :(sum === 21)?( hasBlackJack = true, message = `Congratulatlion You are the winner`)
+        :( message = `Game is over`, isAlive = false)
+        messageEl.textContent = message
+        console.log(hasBlackJack)
+        console.log(isAlive)
     }
-    renderGame()
+
+    
+    function newcard() {
+         let thirdCard = getRandomCard()
+          if(isAlive === true && hasBlackJack === false){
+                  sum += thirdCard
+                 cards.push(thirdCard)
+                 console.log(cards);
+                 renderGame()
+          }
+    }
+
+  
 
 
 
-    newCard.addEventListener("click", () => {
-        let thirdCard = getRandomCard();
-        cardsEl.textContent = `Cards: ${thirdCard}`
-        sum += thirdCard
-        cards.push(thirdCard)
-        
-        renderGame()
-    })
 
-/*
-   */
 
+
+
+
+
+
+
+
+ 
