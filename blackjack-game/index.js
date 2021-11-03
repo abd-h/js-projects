@@ -39,6 +39,10 @@ empty string.
 17. Create getRandomCard that always returns numbers between 2 - 11 and assign it to firstCard and secondCard 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+ let player = {
+        name: "Norris",
+        chips: 500
+    };
 let 
     cards = [],
      sum = 0,
@@ -50,13 +54,17 @@ let startBtn = document.querySelector("button"),
     messageEl = document.querySelector("#message-el"),
     sumEl = document.querySelector("#sum-el"),
     cardsEl = document.querySelector("#cards-el"),
-    newCard = document.querySelector(".new-card-el");
-    
+    newCard = document.querySelector(".new-card-el"),
+    playerEl = document.querySelector("#player-el");
 
-      startBtn.addEventListener("click", () => {
+   
+
+    playerEl.textContent = `${player.name}: $${player.chips}`
+
+    startBtn.addEventListener("click", () => {
         startGame()
     })
-
+    
     newCard.addEventListener("click", () => {
         newcard()
     })
@@ -91,7 +99,7 @@ let startBtn = document.querySelector("button"),
             cardsEl.textContent += ` ${cards[i]} `
         }
         sumEl.textContent =`Sum: ${sum}`;
-        (sum < 21)? message = `You're still in the game, do you want to draw another card`
+        (sum <= 20)? message = `You're still in the game, do you want to draw another card`
         :(sum === 21)?( hasBlackJack = true, message = `Congratulatlion You are the winner`)
         :( message = `Game is over`, isAlive = false)
         messageEl.textContent = message

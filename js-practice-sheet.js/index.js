@@ -127,3 +127,19 @@ function fasterstPlayerTime() {
     function recomendMovie() {
         console.log("Hey check out this new movie we think you might like");
     }    
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+/* Objects - store data in depth - composite / complex data type
+known as key value pairs; 
+*/
+ 
+let course = {
+    title: "Learn CSS Grid for free",
+    lesson: 16,
+    creator: "Norris Blake",
+    length: 63,
+    level: 2,
+    isFree: true,
+    tags: ["html", "css"]
+}
+console.log(course.tags[1]);
