@@ -143,3 +143,33 @@ let course = {
     tags: ["html", "css"]
 }
 console.log(course.tags[1]);
+
+// Objects and Functions 
+let person = {
+    name: "James Whittiker",
+    age: 43,
+    county: "Middlesex"
+};
+ 
+function logData() {
+    return `${person.name} is ${person.age} years old and lives in ${person.county}`
+}
+console.log(logData());
+
+let ageGroup = 77;
+function trainTicket() {
+   return (ageGroup <= 6)? `Free`
+             :(ageGroup > 6 && ageGroup <= 17 )? `Child discount`
+             :(ageGroup >= 18 && ageGroup <= 26)? `Student discount` 
+             :(ageGroup >= 27 && ageGroup < 66)?  `Full Price`
+             :`Senior Citizen`
+}
+console.log(trainTicket());
+
+//   For loop
+let largeCountries = ['China', 'India', 'USA', 'Iindonesia', 'Pakistan']
+m
+    for (let i =0; i < largeCountries.length; i++) {
+        console.log(`- ${largeCountries[i]}`)
+    }
+

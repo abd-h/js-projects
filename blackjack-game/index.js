@@ -85,7 +85,6 @@ let startBtn = document.querySelector("button"),
         isAlive = true;
         let   firstCard = Math.floor(Math.random() * 13) + 1,
             secondCard = getRandomCard()
-            console.log(firstCard);
             cards = [firstCard, secondCard]
             sum =  firstCard + secondCard
             renderGame()
