@@ -168,8 +168,37 @@ console.log(trainTicket());
 
 //   For loop
 let largeCountries = ['China', 'India', 'USA', 'Iindonesia', 'Pakistan']
-m
+
     for (let i =0; i < largeCountries.length; i++) {
         console.log(`- ${largeCountries[i]}`)
     }
+
+// Create a function that returns a random from the array below.
+let hands = ['rock', 'paper', 'Scissor'];
+function randomHands() {
+    let hand = Math.floor(Math.random() * hands.length)
+    
+    return hands[hand];
+}    
+console.log(randomHands());
+
+// Create a function that apples into an apple shelf and the oranges into an orange shelf.
+
+// Use a for loop, a conditional statement and  a textContant property
+
+let fruit  = ["🍊", "🍏", "🍊", "🍊", "🍏"],
+    appleShelf = document.querySelector(".apple-shelf"),
+    orangeShelf = document.querySelector(".orange-shelf")
+
+function shelfs(){
+    for (let i = 0; i < fruit.length; i++) {
+        if (fruit[i] === "🍊") {
+            orangeShelf.textContent += fruit[i]
+        }
+        else {
+            appleShelf.textContent += fruit[i] 
+        }
+    }
+}    
+console.log(shelfs());
 
