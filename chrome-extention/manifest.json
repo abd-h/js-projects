@@ -1,0 +1,15 @@
+
+   
+{
+    "manifest_version": 3,
+    "version": "1.0",
+    "name": "Notes",
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "search-icon.pgn"
+    },
+    "permissions": [
+        "tabs"
+    ] 
+
+}

@@ -32,3 +32,28 @@ h2 {
 .orange-shelf {
     background-color: rgb(248, 219, 214);
 }
+
+.buy {
+    box-sizing: border-box;
+    margin: 40px;
+   
+
+}
+
+.buyer {
+    display: block;
+    margin: auto;
+    background-color: rgb(110, 12, 12);
+    padding: 15px 80px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    border-radius: 30px;  
+}
+
+.p {
+    text-align: center;
+    font-size: 2em;
+    color: rgb(110, 12, 12);
+    font-weight: bold;
+}

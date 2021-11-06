@@ -202,3 +202,23 @@ function shelfs(){
 }    
 console.log(shelfs());
 
+// Creating html element in js
+
+let wrapper = document.querySelector(".buy").innerHTML = `<button type="button" class="buyer">Buy!</button>`
+
+let buyer = document.querySelector(".buyer")
+let p = document.querySelector(".p")
+buyer.addEventListener("click", () => {
+p.innerHTML += `<p>Thank You for buying!</p>`
+console.log("button clicked");
+})
+
+
+let newLeads = `["www.apple.com"]`
+// JSON.stringify(newLeads)
+newLeads = JSON.parse(newLeads)
+newLeads.push('www.o2.co.uk', "www.bbc.co.uk", "www.google.com")
+console.log(newLeads);
+newLeads = JSON.stringify(newLeads) 
+console.log(newLeads);
+
