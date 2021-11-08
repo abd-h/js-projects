@@ -6,29 +6,48 @@ let myLeads = []
 const   inputEl = document.querySelector("#input-el")
 const   inputBtn = document.querySelector("#input-btn")
 const ulEl = document.querySelector("#ul-el")
+const deleteBtn = document.querySelector("#delete-btn")
+console.log(deleteBtn);
 console.log(ulEl);
-inputBtn.addEventListener("click", () => {
-  myLeads.push( inputEl.value)
-  inputEl.value = ""
-  renderMyLead()
-})
 
-function renderMyLead() {
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
+console.log(leadsFromLocalStorage)
+
+if(leadsFromLocalStorage) {
+    myLeads = leadsFromLocalStorage
+    render(myLeads)
+}
+
+function render(leads) {
     //   const li = document.createElement('li')
     let listItems = ""
-  for (let i = 0; i < myLeads.length; i++) {
-    listItems = `<li> 
-                                <a href= "${myLeads[i]}" target="_blank">
-                                            ${myLeads[i]}
+  for (let i = 0; i < leads.length; i++) {
+    listItems += `<li> 
+                                <a href= "${leads[i]}" target="_blank">
+                                            ${leads[i]}
                                 </a>
                       </li>`
     //   li.textContent = myLeads[i]
     //     ulEl.append(li)
     }
-    ulEl.innerHTML += listItems
+    ulEl.innerHTML = listItems
 }
 
-localStorage.setItem("Notes", "www.apple.com")
-console.log(localStorage.getItem("Notes"));
-localStorage.clear()
-console.log(localStorage.getItem("Notes"));
+deleteBtn.addEventListener("dblclick", () => {
+    
+    localStorage.clear()
+    myLeads = []
+    render(myLeads)
+})
+
+inputBtn.addEventListener("click", () => {
+  myLeads.push( inputEl.value)
+  inputEl.value = ""
+  localStorage.setItem("myLeads", JSON.stringify(myLeads))
+  render(myLeads)
+})
+
+// localStorage.setItem("Notes", "www.apple.com")
+// console.log(localStorage.getItem("Notes"));
+// localStorage.clear()
+// console.log(localStorage.getItem("Notes"));

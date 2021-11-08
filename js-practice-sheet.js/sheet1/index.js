@@ -222,3 +222,18 @@ console.log(newLeads);
 newLeads = JSON.stringify(newLeads) 
 console.log(newLeads);
 
+// Truty or falsy
+// falsy =  false, '', 0, null, undefined, NaN 
+
+// null is how a developer signalize an emptyness
+// undefined is how javaScript signalize emptyness
+
+// Use the Boolean to check if its truty or falsy
+let truthyOrFalsy = Boolean("This is not an empty string")
+console.log(Boolean(truthyOrFalsy)) // reads Truth
+console.log(Boolean("")) // false
+console.log(Boolean("0")) // true
+console.log(Boolean(100))// true
+console.log(Boolean(null)) // false
+console.log(Boolean([0])) // true
+console.log(Boolean(-0)) // false
