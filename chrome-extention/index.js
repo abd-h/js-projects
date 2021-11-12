@@ -1,24 +1,33 @@
-/* Create two variables: 
+  /* Create two variables: 
         1. inputBtn --> should be assign to an empty array  
         2. inputEl --> should be assaign to the text input      */ 
 
-let myLeads = []
-const   inputEl = document.querySelector("#input-el")
-const   inputBtn = document.querySelector("#input-btn")
-const ulEl = document.querySelector("#ul-el")
-const deleteBtn = document.querySelector("#delete-btn")
-console.log(deleteBtn);
-console.log(ulEl);
+  let myLeads = []
+  const   inputEl = document.querySelector("#input-el")
+  const   inputBtn = document.querySelector("#input-btn")
+  const ulEl = document.querySelector("#ul-el")
+  const deleteBtn = document.querySelector("#delete-btn")
+  const saveTab = document.getElementById("save-tab")
+  console.log(deleteBtn);
+  console.log(ulEl);
 
-const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
-console.log(leadsFromLocalStorage)
+  const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
+  console.log(leadsFromLocalStorage)
 
-if(leadsFromLocalStorage) {
+  if(leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
     render(myLeads)
-}
+  }
 
-function render(leads) {
+  saveTab.addEventListener("click", function(){
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+          myLeads.push(tabs[0].url)
+          localStorage.setItem("myLeads", JSON.stringify(myLeads))
+          render(myLeads)
+    })
+  })
+
+  function render(leads) {
     //   const li = document.createElement('li')
     let listItems = ""
   for (let i = 0; i < leads.length; i++) {
@@ -31,23 +40,27 @@ function render(leads) {
     //     ulEl.append(li)
     }
     ulEl.innerHTML = listItems
-}
+  }
 
-deleteBtn.addEventListener("dblclick", () => {
+  // const tabs = {url: "https://github.com/MarkVed17/learn-javascript-scrimba/tree/master/5.%20Build%20a%20Chrome%20Extension"}
+  // const tab = `<li>${tabs.url}</li>`
+  
+
+  deleteBtn.addEventListener("dblclick", () => {
     
     localStorage.clear()
     myLeads = []
     render(myLeads)
-})
+  })
 
-inputBtn.addEventListener("click", () => {
+  inputBtn.addEventListener("click", () => {
   myLeads.push( inputEl.value)
   inputEl.value = ""
   localStorage.setItem("myLeads", JSON.stringify(myLeads))
   render(myLeads)
-})
+  })
 
-// localStorage.setItem("Notes", "www.apple.com")
-// console.log(localStorage.getItem("Notes"));
-// localStorage.clear()
-// console.log(localStorage.getItem("Notes"));
+  // localStorage.setItem("Notes", "www.apple.com")
+  // console.log(localStorage.getItem("Notes"));
+  // localStorage.clear()
+  // console.log(localStorage.getItem("Notes"));
