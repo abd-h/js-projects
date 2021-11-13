@@ -11,9 +11,34 @@
     cursor: pointer;
 }
 
+h2 {
+    text-align: center;
+}
 #data {
     color: palevioletred;
     font-size: 25px;
     font-weight: bold;
     text-align: center;
 }
+
+#img-container {
+    width: 70%;
+    display: flex;
+    margin: auto;
+    background-color: pink;
+    height: auto;
+    justify-content: center;
+}
+
+img {
+    width: 300px;
+}
+img {
+    /* display: block; */
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin: 5px;
+
+}
+

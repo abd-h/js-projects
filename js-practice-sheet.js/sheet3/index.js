@@ -78,3 +78,31 @@ function genetateSentence(desc, arr) {
 console.log(genetateSentence("best fruits", ["Apple", "Banana"]));
 
 console.log(genetateSentence("largest countries",["China", "India", "USA"]));
+//:::::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Render Images
+
+// Create a function that renders the three team images
+
+// Use a for loop, template string (``), plus equals (+=) 
+
+// .innerHTML to solve the chellange.
+
+const imgs = [
+    `images/anthonymatial.jpeg`,
+    `images/masongreenwood.jpeg`,
+   `images/mrashford.jpeg`
+]
+
+const imgsContainer = document.getElementById("img-container")
+
+function renderTeamImages(imgs){
+    let teamImgs = '';
+   for (let i = 0; i < imgs.length; i++) {
+      teamImgs +=`<img src="${imgs[i]}" alt="Manchester United forward players">`
+   }
+   return imgsContainer.innerHTML = teamImgs
+}
+renderTeamImages(imgs)
+
+//:::::::::::::::::   The End   :::::::::::::::::::
