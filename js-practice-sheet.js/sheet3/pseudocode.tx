@@ -1,0 +1,41 @@
+## Pseudocode for leads tracker 
+
+                For the javascript
+1. Declare the following variables:
+    1. myLeads - which should be set on an empty array          
+    2. inputBtn for the textfield
+    3. ulEl for unorderd listItems which will be saved on text that is typed on the inputfield 
+    4. saveTab 
+    5. deleteBtn
+
+2. Declare leadsFromLocalStorage variable and use it to get myLeads from localStorage. Use JSON.
+
+3. Use if statement to check if there's any leads in localStorage then:
+        * set leadsFromLocalStorage to localStorage
+        * evoke render function with myLeads argument
+
+        
+
+4. addEventListener to inputBtn when clicked it shuold 
+        * push ulEl.value to myLeads
+        * empty input field
+        * save to localStorage
+        * evoke render fuction
+
+
+5. Create render function and give it a single parameter.
+        * Inside the function declare a variable called listItems and set to an empty string.
+        * You could loop through the parameter and then create list items inside the loop and wrap anchor element on the loop variable.
+        * Finally outside the loop render the listItems using ulEl innerHTML.
+
+6. AddEventListener to the deleteBtn and on dblclick:
+        *clear localStorage
+        *set myLeads to an empty array
+        *evoke render function with myLeads argument     
+
+4. Use saveTab and add eventListener to save local chrome tab on current window. research online. 
+    *push tabs.url to myLeads
+    * add myLeads to localStorage using JSON and then evoke render function
+
+
+
