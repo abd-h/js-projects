@@ -19,6 +19,7 @@ function render(leads) {
 
 inputBtn.addEventListener("click", () => {
     myLeads.push(ulEl.value)
+    ulEl.value = ""
     localStorage.setItem("myLeads", JSON.stringify("myLeads"))
     render(myLeads)
 })
